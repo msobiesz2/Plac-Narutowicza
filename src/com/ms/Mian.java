@@ -1,15 +1,10 @@
 package com.ms;
 
-public class Mian extends Grafika{
+public class Mian{
 	
 	public static void main(String[] args) 
 	{
-		launch(args);
-	}
-		
-		
-		
-		
-		
-	}
+		Grafika.launch(Grafika.class, args);
+	}		
+}
 
