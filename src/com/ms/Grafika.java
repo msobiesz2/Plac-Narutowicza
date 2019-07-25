@@ -42,7 +42,7 @@ public class Grafika extends Application{
 		
 		//Button button = new Button();
 		
-		Image image = new Image("file:plN.png");
+		Image image = new Image("file:plN_v2.png");
 		ImageView iv = new ImageView();
 		iv.setImage(image);
 		stackPane.getChildren().add(iv);
