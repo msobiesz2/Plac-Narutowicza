@@ -8,3 +8,20 @@ public class Semaphory {
 	Semaphore pelny = new Semaphore(0);
 
 }
+
+
+ class Threads extends Thread
+{
+	@Override
+	 public void run() 
+	{
+		try 
+		{
+			
+		}
+		catch(Exception e) 
+		{
+			System.out.println("Exception caught");
+		}
+	}
+}
