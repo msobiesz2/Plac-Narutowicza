@@ -3,6 +3,7 @@ package com.ms;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
@@ -14,7 +15,7 @@ import javafx.scene.shape.*;
 
 public class Grafika extends Application {
 
-	@Override
+
 	public void start(Stage primaryStage) throws InterruptedException {
 
 		StackPane stackPane = new StackPane();
@@ -34,15 +35,17 @@ public class Grafika extends Application {
 		tram.setCenterY(0);
 
 		final Circle car = new Circle(5, 5, 5);
-
 		car.setCenterX(0);
 		car.setCenterY(0);
+		
+		
 
 		tram.setFill(Color.PURPLE);
 		car.setFill(Color.BLACK);
 		stackPane.getChildren().add(car);
 		stackPane.getChildren().add(tram);
-
+		
+		
 		Path path1 = new Path();
 
 		path1.getElements().add(new MoveTo(370, -110)); 
@@ -57,7 +60,7 @@ public class Grafika extends Application {
 		pathT.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 		pathT.setAutoReverse(true);
 		pathT.play();
-		
+
 		Path path2 = new Path();
 		
 		path2.getElements().add(new MoveTo(370,-110));	// 2nd  for car
@@ -76,10 +79,26 @@ public class Grafika extends Application {
 		pathT2.setAutoReverse(true);
 		pathT2.play();
 		
-		
+		Path path3 = new Path();
 
-//		path.getElements().add(new MoveTo(70, -400)); // 3rd  for car
-//		path.getElements().add(new LineTo(-370, 400));
+		path3.getElements().add(new MoveTo(70, -400)); // 3rd  for car
+		path3.getElements().add(new LineTo(-370, 400));
+		
+		PathTransition pathT3 = new PathTransition();
+		pathT3.setDuration(Duration.millis(10000));
+		pathT3.setPath(path3);
+		pathT3.setNode(car);
+		pathT3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+		pathT3.setAutoReverse(true);
+		pathT3.play();
+		
+		
+		
+		
+		
+		
+		
+		
 		
 //		path.getElements().add(new MoveTo(100, -400)); // 4th for car
 //		path.getElements().add(new LineTo(-325, 400));
@@ -168,10 +187,7 @@ public class Grafika extends Application {
 //		path.getElements().add(new CubicCurveTo(-5,200,95,135,117,55)); //junction
 //		path.getElements().add(new CubicCurveTo(117,55,165,-20,248,-100));
 //		path.getElements().add(new CubicCurveTo(248,-100,300,-145,370,-135));
-		
-		
-		
+			
 	}
-
 	 
 }
