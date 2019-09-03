@@ -27,28 +27,28 @@ public class Grafika extends Application {
 		primaryStage.setTitle("Plac Narutowicza");
 		primaryStage.show();
 
-		Image image = new Image("file:plN_v2.png");
+		Image image = new Image("file:plN_v3.png");
 		ImageView iv = new ImageView();
 		iv.setImage(image);
 		stackPane.getChildren().add(iv);
 
-        //firstPath(stackPane);
-		//secondPath(stackPane);
-		//thirdPath(stackPane);
-		//forthPath(stackPane);
-		//fifthPath(stackPane);
-		//sixthPath(stackPane);
-		//seventhPath(stackPane);
-		//eightPath(stackPane);
-		//ninthPath(stackPane);
+        firstPath(stackPane);
+		secondPath(stackPane);
+		thirdPath(stackPane);
+		forthPath(stackPane);
+		fifthPath(stackPane);
+		sixthPath(stackPane);
+		seventhPath(stackPane);
+		eightPath(stackPane);
+		ninthPath(stackPane);
         tenthPath(stackPane);
-		//eleventhPath(stackPane);
-//		twelfthPath(stackPane);
-//		thirteenthPath(stackPane);
-//		fourteenPath(stackPane);
-//		fifteenthPath(stackPane);
-//		sixteenthPath(stackPane);
-//		seventeenthPath(stackPane);
+		eleventhPath(stackPane);
+		twelfthPath(stackPane);
+		thirteenthPath(stackPane);
+		fourteenPath(stackPane);
+		fifteenthPath(stackPane);
+		sixteenthPath(stackPane);
+		seventeenthPath(stackPane);
 
 
 	}
@@ -200,8 +200,8 @@ public class Grafika extends Application {
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(-280,400)); // 1st tram
-        path.getElements().add(new LineTo(153,-400));
+        path.getElements().add(new MoveTo(153,-400)); // 1st tram
+        path.getElements().add(new LineTo(-280,400));
 
         pathTT(path,tram);
     }
@@ -214,8 +214,8 @@ public class Grafika extends Application {
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(165,-400)); // 2nd tram
-        path.getElements().add(new LineTo(-272,405));
+        path.getElements().add(new MoveTo(-272,405)); // 2nd tram
+        path.getElements().add(new LineTo(165,-400));
 
         pathTT(path,tram);
     }
@@ -223,18 +223,19 @@ public class Grafika extends Application {
     public void eleventhPath(StackPane stackPane)
     {
         Circle tram = new Circle(5, 5, 5);
-        car.setFill(Color.BLACK);
+        setTram(tram);
 
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(-280,400)); // 3rd tram
-        path.getElements().add(new LineTo(-233,320));
-//        path.getElements().add(new CubicCurveTo(-233,320,-190,275,-171,273));
-//        path.getElements().add(new LineTo(-5,200));
-//        path.getElements().add(new CubicCurveTo(-5,200,95,135,117,55)); // junction
-//        path.getElements().add(new CubicCurveTo(117,55,165,-20,248,-100));
-//        path.getElements().add(new CubicCurveTo(248,-100,300,-145,370,-135));
+        path.getElements().add(new MoveTo(-272,405)); // 3rd tram
+        path.getElements().add(new LineTo(-225,320));
+        path.getElements().add(new CubicCurveTo(-225,320,-190,280,-165,278));
+        path.getElements().add(new LineTo(-40,222));
+        path.getElements().add(new LineTo(40,180));
+        path.getElements().add(new CubicCurveTo(40,180,105,110,122,60)); // junction
+        path.getElements().add(new CubicCurveTo(122,60,165,-20,268,-105));
+        path.getElements().add(new CubicCurveTo(268,-105,300,-135,380,-130));
 
         pathTT(path,tram);
     }
@@ -242,19 +243,20 @@ public class Grafika extends Application {
     public void twelfthPath(StackPane stackPane)
     {
         Circle tram = new Circle(5, 5, 5);
-        car.setFill(Color.BLACK);
+        setTram(tram);
 
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(-275,400)); // 4th tram
-        path.getElements().add(new LineTo(-233,320));
-        path.getElements().add(new CubicCurveTo(-233,320,-190,275,-171,273));
-        path.getElements().add(new LineTo(-5,200));
-        path.getElements().add(new CubicCurveTo(-5,200,95,135,117,55)); // junction
-        path.getElements().add(new CubicCurveTo(117,55,168,-62,100,-210));
-        path.getElements().add(new CubicCurveTo(100,-210,80,-275,100,-300));
-        path.getElements().add(new LineTo(155,-400));
+        path.getElements().add(new MoveTo(-272,405)); // 4rd tram
+        path.getElements().add(new LineTo(-225,320));
+        path.getElements().add(new CubicCurveTo(-225,320,-190,280,-165,278));
+        path.getElements().add(new LineTo(-40,222));
+        path.getElements().add(new LineTo(40,180));
+        path.getElements().add(new CubicCurveTo(40,180,105,110,122,60)); // junction
+        path.getElements().add(new CubicCurveTo(122,60,172,-57,105,-205));
+        path.getElements().add(new CubicCurveTo(105,-205,85,-270,105,-295));
+        path.getElements().add(new LineTo(160,-395));
 
         pathTT(path,tram);
     }
@@ -262,14 +264,14 @@ public class Grafika extends Application {
     public void thirteenthPath(StackPane stackPane)
     {
         Circle tram = new Circle(5, 5, 5);
-        car.setFill(Color.BLACK);
+        setTram(tram);
 
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(370,-150)); 	// 5th tram
-        path.getElements().add(new LineTo(16,-162));
-        path.getElements().add(new LineTo(-290,400));
+        path.getElements().add(new MoveTo(375,-145)); 	// 5th tram
+        path.getElements().add(new LineTo(21,-157));
+        path.getElements().add(new LineTo(-285,405));
 
         pathTT(path,tram);
 
@@ -278,19 +280,19 @@ public class Grafika extends Application {
     public void fourteenPath(StackPane stackPane)
     {
         Circle tram = new Circle(5, 5, 5);
-        car.setFill(Color.BLACK);
+        setTram(tram);
 
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(370,-150)); 	// 6th tram
-        path.getElements().add(new LineTo(16,-162));
-        path.getElements().add(new LineTo(-145,132));
-        path.getElements().add(new CubicCurveTo(-145,132,-200,277,-35,215));
-        path.getElements().add(new LineTo(-5,200));
-        path.getElements().add(new CubicCurveTo(-5,200,95,135,117,55)); //junction
-        path.getElements().add(new CubicCurveTo(117,55,165,-20,248,-100));
-        path.getElements().add(new CubicCurveTo(248,-100,300,-145,370,-135));
+        path.getElements().add(new MoveTo(375,-145)); 	// 6th tram
+        path.getElements().add(new LineTo(21,-157));
+        path.getElements().add(new LineTo(-140,137));
+        path.getElements().add(new CubicCurveTo(-140,127,-195,282,-30,220));
+        path.getElements().add(new LineTo(-0,205));
+        path.getElements().add(new CubicCurveTo(-0,205,100,140,122,60)); //junction
+        path.getElements().add(new CubicCurveTo(122,60,170,-15,253,-95));
+        path.getElements().add(new CubicCurveTo(253,-95,305,-140,375,-130));
 
         pathTT(path,tram);
     }
@@ -298,20 +300,20 @@ public class Grafika extends Application {
     public void fifteenthPath(StackPane stackPane)
     {
         Circle tram = new Circle(5, 5, 5);
-        tram.setFill(Color.BLACK);
+        setTram(tram);
 
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(370,-150)); 	// 7th tram
-        path.getElements().add(new LineTo(16,-162));
-        path.getElements().add(new LineTo(-145,132));
-        path.getElements().add(new CubicCurveTo(-145,132,-200,277,-35,215));
-        path.getElements().add(new LineTo(-5,200));
-        path.getElements().add(new CubicCurveTo(-5,200,95,135,117,55)); //junction
-        path.getElements().add(new CubicCurveTo(117,55,168,-62,100,-210));
-        path.getElements().add(new CubicCurveTo(100,-210,80,-275,100,-300));
-        path.getElements().add(new LineTo(155,-400));
+        path.getElements().add(new MoveTo(375,-145)); 	// 7th tram
+        path.getElements().add(new LineTo(21,-157));
+        path.getElements().add(new LineTo(-140,137));
+        path.getElements().add(new CubicCurveTo(-140,127,-195,282,-30,220));
+        path.getElements().add(new LineTo(-0,205));
+        path.getElements().add(new CubicCurveTo(-0,205,100,140,122,60)); //junction
+        path.getElements().add(new CubicCurveTo(122,60,172,-57,105,-205));
+        path.getElements().add(new CubicCurveTo(105,-205,85,-270,105,-295));
+        path.getElements().add(new LineTo(160,-395));
 
         pathTT(path,tram);
     }
@@ -319,37 +321,37 @@ public class Grafika extends Application {
     public void sixteenthPath(StackPane stackPane)
     {
         Circle tram = new Circle(5, 5, 5);
-
+        setTram(tram);
 
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(145,-400));  // 8th tram
-        path.getElements().add(new LineTo(-145,132));
-        path.getElements().add(new CubicCurveTo(-145,132,-200,277,-35,215));
-        path.getElements().add(new LineTo(-5,200));
-        path.getElements().add(new CubicCurveTo(-5,200,95,135,117,55)); //junction
-        path.getElements().add(new CubicCurveTo(117,55,168,-62,100,-210));
-        path.getElements().add(new CubicCurveTo(100,-210,80,-275,100,-300));
-        path.getElements().add(new LineTo(155,-400));
+        path.getElements().add(new MoveTo(150,-395));  // 8th tram
+        path.getElements().add(new LineTo(-140,137));
+        path.getElements().add(new CubicCurveTo(-140,127,-195,282,-30,220));
+        path.getElements().add(new LineTo(-0,205));
+        path.getElements().add(new CubicCurveTo(-0,205,100,140,122,60)); //junction
+        path.getElements().add(new CubicCurveTo(122,60,172,-57,105,-205));
+        path.getElements().add(new CubicCurveTo(105,-205,85,-270,105,-295));
+        path.getElements().add(new LineTo(160,-395));
 
         pathTT(path,tram);
     }
     public void seventeenthPath(StackPane stackPane)
     {
         Circle tram = new Circle(5, 5, 5);
-
+        setTram(tram);
 
         stackPane.getChildren().add(tram);
 
         Path path = new Path();
-        path.getElements().add(new MoveTo(145,-400));  // 9th tram
-        path.getElements().add(new LineTo(-145,132));
-        path.getElements().add(new CubicCurveTo(-145,132,-200,277,-35,215));
-        path.getElements().add(new LineTo(-5,200));
-        path.getElements().add(new CubicCurveTo(-5,200,95,135,117,55)); //junction
-        path.getElements().add(new CubicCurveTo(117,55,165,-20,248,-100));
-        path.getElements().add(new CubicCurveTo(248,-100,300,-145,370,-135));
+        path.getElements().add(new MoveTo(150,-395));  // 8th tram
+        path.getElements().add(new LineTo(-140,137));
+        path.getElements().add(new CubicCurveTo(-140,127,-195,282,-30,220));
+        path.getElements().add(new LineTo(-0,205));
+        path.getElements().add(new CubicCurveTo(-0,205,100,140,122,60)); //junction
+        path.getElements().add(new CubicCurveTo(122,60,170,-15,253,-95));
+        path.getElements().add(new CubicCurveTo(253,-95,305,-140,375,-130));
 
         pathTT(path,tram);
     }
