@@ -1,44 +1,40 @@
 package com.ms;
 
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 
+public class Car {
 
-public class Car extends Thread{
-    private int prCar;
-    private int x;
-    private int y;
-    private int path;
-    private int cooX;
-    private  int cooY;
-    private Grafika stackPane;
-    private int xy;
-    private Circle car = new Circle(5, 5, 5);
+    public int x;
+    public int y;
 
+    Rectangle car = new Rectangle();
 
-    public Car(Grafika stackPane, Circle car, int path){
-
-        setCar(car);
-        this.path = path;
-        this.prCar = prCar;
-        this.stackPane = stackPane;
-        x=0;
-        y=0;
-        xy = -1;
-
-    }
-
-    public void setCar(Circle car) {
-        this.car = car;
-        car.setFill(Color.BLUE);
-    }
-
-    public int getX(){
+    public int getX() {
         return x;
     }
-    public int getY(){
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
         return y;
     }
 
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Car(int x, int y){
+        setX(x);
+        setY(y);
+        car.setHeight(5);
+        car.setWidth(5);
+        car.setLayoutX(getX());
+        car.setLayoutY(getY());
+
+        Grafika.stackPane.getChildren().add(car);
+
+
+    }
 }

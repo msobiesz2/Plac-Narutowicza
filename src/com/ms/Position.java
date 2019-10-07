@@ -9,11 +9,13 @@ public class Position {
         y = dy;
     }
 
-    public int getX() {
+    public int getX(){
+
         return x;
     }
 
     public int getY(){
+
         return y;
     }
 }

@@ -1,37 +1,39 @@
 package com.ms;
 
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 
 public class Tram {
 
-    private Circle tram = new Circle(5, 5, 5);
-    private Grafika stackPane;
-    private int x;
-    private int y;
-    private int path;
-    private int cooX;
-    private  int cooY;
-    private int xy;
+    public int x;
+    public int y;
 
-    public Tram(Grafika stackPane, Circle tram, int path){
+    Rectangle tram = new Rectangle();
 
-        setTram(tram);
-        this.path = path;
-        this.stackPane = stackPane;
-        x=0;
-        y=0;
-        xy = -1;
+    public int getX() {
+        return x;
     }
 
-    public void setTram(Circle tram) {
-        this.tram = tram;
-        tram.setFill(Color.RED);
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public void move()
-    {
+    public int getY() {
+        return y;
+    }
 
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Tram(int x, int y) {
+        setX(x);
+        setY(y);
+        tram.setHeight(5);
+        tram.setWidth(5);
+        tram.setLayoutX(getX());
+        tram.setLayoutY(getY());
+
+        Grafika.stackPane.getChildren().add(tram);
 
     }
 }
