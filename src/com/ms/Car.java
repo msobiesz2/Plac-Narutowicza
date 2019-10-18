@@ -1,8 +1,10 @@
 package com.ms;
 
+import javafx.scene.Node;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Car {
+public class Car extends Node {
 
     public int x;
     public int y;
@@ -13,27 +15,35 @@ public class Car {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
 
-    public Car(int x, int y){
-        setX(x);
-        setY(y);
-        car.setHeight(5);
-        car.setWidth(5);
+    public Car(int x,int y){
+        car.setHeight(x);
+        car.setWidth(y);
         car.setLayoutX(getX());
         car.setLayoutY(getY());
+        car.setFill(Color.BLACK);
 
         Grafika.stackPane.getChildren().add(car);
+
+    }
+
+    @Override
+    public Node getStyleableNode() {
+        return null;
+    }
+
+
+    class AddCar{
+
+        public AddCar(){
+            Car car = new Car(5,5);
+            Grafika.cars.add(car);
+
+        }
 
 
     }
