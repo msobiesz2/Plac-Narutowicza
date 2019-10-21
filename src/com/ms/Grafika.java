@@ -47,25 +47,23 @@ public class Grafika extends Application {
         iv.setImage(image);
         stackPane.getChildren().add(iv);
 
-        light1 = new Lights();
-        light1.firstLight();
-        light2 = new Lights();
-        light2.secondLight();
-        light3 = new Lights();
-        light3.thirdight();
-        light4 = new Lights();
-        light4.forthLight();
-        light5 = new Lights();
-        light5.fifthLight();
-        light6 = new Lights();
-        light6.sixthLight();
-        light7 = new Lights();
-        light7.seventhLight();
-        light8 = new Lights();
-        light8.eighthLight();
 
-
-
+//        light1 = new Lights();
+//        light1.firstLight();
+//        light2 = new Lights();
+//        light2.secondLight();
+//        light3 = new Lights();
+//        light3.thirdight();
+//        light4 = new Lights();
+//        light4.forthLight();
+//        light5 = new Lights();
+//        light5.fifthLight();
+//        light6 = new Lights();
+//        light6.sixthLight();
+//        light7 = new Lights();
+//        light7.seventhLight();
+//        light8 = new Lights();
+//        light8.eighthLight();
 
     }
 
@@ -93,8 +91,8 @@ public class Grafika extends Application {
 
 //    private void control(){
 //
-//        new Thread(new Light()).start();
-//        new Thread(new Light()).start();
+//        new Thread(new Lights()).start();
+//        new Thread(new Lights()).start();
 //
 //    }
 
