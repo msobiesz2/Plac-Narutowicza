@@ -1,5 +1,6 @@
 package com.ms;
 
+import javafx.animation.FillTransition;
 import javafx.animation.PauseTransition;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
@@ -12,7 +13,7 @@ public class Lights implements Runnable{
     private Circle circleRed, circleGreen;
     private Color[] colors = {Color.RED, Color.GREEN};
     private int onColor = 0;
-    private static final int PAUSE = 5;
+    private static final int PAUSE = 6;
     private int light;
 
     public void trafficLights(int top, int right, int bottom, int left) {
@@ -35,107 +36,150 @@ public class Lights implements Runnable{
         Grafika.stackPane.getChildren().add(gridPane);
     }
 
-    public void firstLight(int red, int green) {
+    public void firstLight(int setColor) {
 
             trafficLights(30, 0, 100, 340);
-            update(red,green);
+            //update(setColor);
+            redLight();
 
     }
 
-    public void secondLight(int red, int green) {
+    public void secondLight(int setColor) {
 
             trafficLights(500, 0, 0, 570);
-            update(red,green);
+            //update(setColor);
+            greenLight();
 
     }
 
-    public void thirdight(int red, int green){
+    public void thirdight(int setColor){
             trafficLights(500,0,0,585);
-            update(red,green);
+            update(setColor);
         }
 
-    public void forthLight(int red, int green){
+    public void forthLight(int setColor){
             trafficLights(240,0,0,385);
-            update(red,green);
+            update(setColor);
         }
 
-    public void fifthLight(int red, int green){
+    public void fifthLight(int setColor){
             trafficLights(230,0,0,415);
-            update(red,green);
+            update(setColor);
         }
 
-    public void sixthLight(int red, int green){
+    public void sixthLight(int setColor){
             trafficLights(410,0,0,455);
-            update(red,green);
+            update(setColor);
         }
 
-    public void seventhLight(int red, int green){
+    public void seventhLight(int setColor){
             trafficLights(410,0,0,440);
-            update(red,green);
+            update(setColor);
         }
 
-    public void eighthLight(int red, int green){
-        trafficLights(195,0,0,640);
-            update(red,green);
+    public void eighthLight(int setColor){
+            trafficLights(195,0,0,640);
+            update(setColor);
     }
 
-    private void update(int red, int green) {
+    private void update(int setColor) {
 
         PauseTransition pause = new PauseTransition(Duration.seconds(PAUSE));
-        pause.setOnFinished(event ->{
+        pause.setOnFinished(event -> {
 
-        circleRed.setFill((onColor == red) ? colors[onColor] : Color.GREY);
-        circleGreen.setFill((onColor == green) ? colors[onColor] : Color.GREY);
-        onColor = ((onColor + 1) >= colors.length) ? 0 : onColor + 1;
-        pause.play();
+                    if (setColor == 0) {
 
-        });
+                        circleGreen.setFill((onColor == 0) ? colors[onColor] : Color.GREY);
+                        //circleRed.setFill((onColor == 1) ? colors[onColor] : Color.GREY);
+                        //onColor = ((onColor + 1) >= colors.length) ? 0 : onColor + 1;
+                        pause.play();
+                    } else if (setColor == 1){
 
-        pause.play();
+                        //circleGreen.setFill((onColor == 1) ? colors[onColor- 1] : Color.GREY);
+                        circleRed.setFill((onColor == 0) ? colors[onColor + 1] : Color.GREY);
+                        //onColor = ((onColor + 1) >= colors.length) ? 0 : onColor + 1;
+                        pause.play();
+                }
+            });
+                    pause.play();
+    }
+
+    private void redLight(){
+        FillTransition fill = new FillTransition(Duration.seconds(PAUSE),circleGreen,Color.GREY,Color.GREEN);
+        //circleGreen.setFill((onColor == 0) ? colors[onColor] : Color.GREY);
+        fill.play();
+
+
+    }
+
+    private void greenLight(){
+        FillTransition fill = new FillTransition(Duration.seconds(PAUSE),circleRed,Color.GREY,Color.RED);
+        //circleGreen.setFill((onColor == 0) ? colors[onColor] : Color.GREY);
+        fill.play();
+
+    }
+
+    public void changeLights(){
+        int red = 0;
+        int green = 1;
+        if(red == 1 && green == 0){
+            //set light to red
+        }else if(red ==0 && green ==1){
+            //set light to green
+        }
+
     }
 
     public void lightsConfig(int configOption){
-        if (configOption == 1){
-            firstLight(0,1); //green
-            secondLight(1,0); //red
-            thirdight(0,1); //green
-            forthLight(0,1); //green
-            fifthLight(1,0); //red
-            sixthLight(0,1); //green
-            seventhLight(1,0); //red
-            eighthLight(1,0); //red
-        } else if (configOption == 2){
-            firstLight(0,1); //green
-            secondLight(0,1); //green
-            thirdight(0,1); //green
-            forthLight(1,0); //red
-            fifthLight(0,1); //green
-            sixthLight(1,0); //red
-            seventhLight(0,1); //green
-            eighthLight(1,0); //red
-        } else if (configOption == 3){
-            firstLight(1,0); //red
-            secondLight(1,0); //red
-            thirdight(0,1); //green
-            forthLight(1,0); //red
-            fifthLight(0,1); //green
-            sixthLight(1,0); //red
-            seventhLight(1,0); //red
-            eighthLight(0,1); //green
-        } else if (configOption == 4){
-            firstLight(0,1); //green
-            secondLight(1,0); //red
-            thirdight(0,1); //green
-            forthLight(1,0); //red
-            fifthLight(1,0); //red
-            sixthLight(0,1); //green
-            seventhLight(0,1); //green
-            eighthLight(1,0); //red
+        switch(configOption){
+            case 1:
+                firstLight(0); //green
+                secondLight(1); //red
+                thirdight(1); //green
+                forthLight(1); //green
+                fifthLight(0); //red
+                sixthLight(1); //green
+                seventhLight(0); //red
+                eighthLight(0); //red
+                break;
+
+            case 2:
+                firstLight(1); //green
+                secondLight(1); //green
+                thirdight(1); //green
+                forthLight(0); //red
+                fifthLight(1); //green
+                sixthLight(0); //red
+                seventhLight(1); //green
+                eighthLight(0); //red
+                break;
+
+            case 3:
+                firstLight(1); //red
+                secondLight(1); //red
+                thirdight(0); //green
+                forthLight(1); //red
+                fifthLight(0); //green
+                sixthLight(1); //red
+                seventhLight(1); //red
+                eighthLight(0); //green
+                break;
+
+            case 4:
+                firstLight(0); //green
+                secondLight(1); //red
+                thirdight(1); //green
+                forthLight(0); //red
+                fifthLight(0); //red
+                sixthLight(1); //green
+                seventhLight(1); //green
+                eighthLight(0); //red
+                break;
         }
 
     }
 
-    public void selectConfig(){
+    public void selectConfig(int light){
 
         switch (light){
             case 1:
@@ -156,7 +200,7 @@ public class Lights implements Runnable{
     @Override
     public void run(){
 
-        while (true) {
+        while(true) {
 
                 try {
                     Thread.sleep(PAUSE);
@@ -168,10 +212,10 @@ public class Lights implements Runnable{
                 if (light == 5) {
                     light = 1;
                 }
-                selectConfig();
+                selectConfig(light);
             }
         }
 
     }
-    
+
 

@@ -31,7 +31,8 @@ public class Grafika extends Application {
 
     public static StackPane stackPane = new StackPane();
 
-    Lights light1,light2,light3,light4,light5,light6,light7,light8,light9;
+    Lights light1,light2,light3,light4,light5,light6,light7,light8;
+    public static ArrayList<Lights> lights = new ArrayList<>();
 
 
     @Override
@@ -47,23 +48,28 @@ public class Grafika extends Application {
         iv.setImage(image);
         stackPane.getChildren().add(iv);
 
-
 //        light1 = new Lights();
-//        light1.firstLight();
-//        light2 = new Lights();
-//        light2.secondLight();
-//        light3 = new Lights();
-//        light3.thirdight();
-//        light4 = new Lights();
-//        light4.forthLight();
-//        light5 = new Lights();
-//        light5.fifthLight();
-//        light6 = new Lights();
-//        light6.sixthLight();
-//        light7 = new Lights();
-//        light7.seventhLight();
-//        light8 = new Lights();
-//        light8.eighthLight();
+//        light1.blabla();
+
+
+
+
+            light1 = new Lights();
+            light1.firstLight(1);
+            light2 = new Lights();
+            light2.secondLight(0);
+//            light3 = new Lights();
+//            light3.thirdight(1);
+//            light4 = new Lights();
+//            light4.forthLight(1);
+//            light5 = new Lights();
+//            light5.fifthLight(0);
+//            light6 = new Lights();
+//            light6.sixthLight(1);
+//            light7 = new Lights();
+//            light7.seventhLight(0);
+//            light8 = new Lights();
+//            light8.eighthLight(0);
 
     }
 
