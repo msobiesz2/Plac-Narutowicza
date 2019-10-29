@@ -1,6 +1,5 @@
 package com.ms;
 
-import com.ms.Grafika.Paths;
 
 public class App{
 	
