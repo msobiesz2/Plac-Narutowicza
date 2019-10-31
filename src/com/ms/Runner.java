@@ -1,6 +1,6 @@
 package com.ms;
 
-public class Runner {
+public class Runner extends Thread{
 
     public Runner(){
         Lights l1 = new Lights();
@@ -11,7 +11,6 @@ public class Runner {
         Lights l6 = new Lights();
         Lights l7 = new Lights();
         Lights l8 = new Lights();
-
 
     }
 }

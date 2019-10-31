@@ -28,20 +28,13 @@ import static com.ms.Lights.light6;
 import static com.ms.Lights.light7;
 import static com.ms.Lights.light8;
 
-public class Grafika extends Application implements Runnable {
+public class Grafika extends Application {
 
     public static final int WIDTH = 731;
     public static final int HEIGHT = 779;
 
-    public static ArrayList<Car> cars = new ArrayList<>();
-    public static LinkedList<Tram> trams = new LinkedList<>();
-    private ObservableList<Lights> lights = FXCollections.observableArrayList();
-
     public static StackPane stackPane = new StackPane();
 
-//    Lights light1, light2, light3, light4, light5, light6, light7, light8;
-    private int light;
-    private static final int PAUSE = 6;
 
     @Override
     public void start(Stage primaryStage) {
@@ -57,7 +50,6 @@ public class Grafika extends Application implements Runnable {
         stackPane.getChildren().add(iv);
 
 
-
         light1 = new Lights(30, 0, 100, 340);
         light2 = new Lights(500, 0, 0, 570);
         light3 = new Lights(500, 0, 0, 585);
@@ -70,207 +62,9 @@ public class Grafika extends Application implements Runnable {
         Lights light0 = new Lights();
         light0.start();
 
-
     }
 
-    @Override
-    public void run() {
-        while (true) {
-            if (light % 2 == 0) {
-                try {
-                    System.out.println("grafkia" + light);
-                    Thread.sleep(PAUSE);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                try {
-                    System.out.println("grafkia2" + light);
-                    Thread.sleep(PAUSE);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            light++;
-            if (light == 5) {
-                light = 1;
-            }
-            selectConfig();
-        }
-    }
 
-    public void lightsConfig(int lightOption) {
-        switch (lightOption) {
-            case 1:
-                light1.greenLight();
-                light2.redLight();
-                light3.greenLight();
-                light4.greenLight();
-                light5.redLight();
-                light6.greenLight();
-                light7.redLight();
-                light8.redLight();
-                break;
-
-            case 2:
-                light1.greenLight();
-                light2.greenLight();
-                light3.greenLight();
-                light4.redLight();
-                light5.redLight();
-                light6.redLight();
-                light7.greenLight();
-                light8.redLight();
-                break;
-
-            case 3:
-                light1.redLight();
-                light2.redLight();
-                light3.greenLight();
-                light4.redLight();
-                light5.greenLight();
-                light6.redLight();
-                light7.redLight();
-                light8.greenLight();
-                break;
-
-            case 4:
-                light1.greenLight();
-                light2.redLight();
-                light3.greenLight();
-                light4.redLight();
-                light5.redLight();
-                light6.greenLight();
-                light7.greenLight();
-                light8.redLight();
-                break;
-        }
-    }
-
-    public void selectConfig() {
-        switch (light) {
-            case 1:
-                lightsConfig(1);
-                break;
-            case 2:
-                lightsConfig(2);
-                break;
-            case 3:
-                lightsConfig(3);
-                break;
-            case 4:
-                lightsConfig(4);
-                break;
-        }
-    }
-
-//    public void trafficLights(int top, int right, int bottom,int left){
-//
-//        GridPane gridPane = new GridPane();
-//        gridPane.setPadding(new Insets(top,right,bottom,left));
-//        gridPane.setHgap(5);
-//        gridPane.setVgap(5);
-//
-//        circleRed = new Circle( 5);
-//        circleRed.setStroke(Color.BLACK);
-//        circleRed.setFill(Color.GREY);
-//
-//        circleGreen = new Circle( 5);
-//        circleGreen.setStroke(Color.BLACK);
-//        circleGreen.setFill(Color.GREY);
-//
-//        gridPane.add(circleGreen,1,1);
-//        gridPane.add(circleRed,1,2);
-//        stackPane.getChildren().add(gridPane);
-//    }
-
-
-//    private void control(){
-//
-//        new Thread(new Lights()).start();
-//        new Thread(new Lights()).start();
-//
-//    }
-
-//    class Light implements Runnable{
-
-//        private int threadID;
-//        private static final int PAUSE = 2000;
-//        private int MAX_THREADS = 2;
-//        private boolean isStopped = false;
-
-//        Light(){
-//
-//            threadID = threadNumber++;
-//
-//        }
-
-//        void reset(){
-//            threadNumber = 0; invokeThreadNumber =0;
-//        }
-//
-//        private void update(){
-//
-//            circleRed.setFill((onColor == 0) ? colors[onColor] : Color.GREY );
-//            circleGreen.setFill((onColor == 1) ? colors[onColor] : Color.GREY );
-//            onColor = ((onColor+1)>= colors.length) ? 0 : onColor + 1;
-//        }
-
-//        public void thirdight(){
-//            trafficLights(500,0,0,585);
-//
-//        }
-//
-//        public void forthLight(){
-//            trafficLights(240,0,0,385);
-//
-//        }
-//
-//        public void fifthLight(){
-//            trafficLights(230,0,0,415);
-//
-//        }
-//
-//        public void seventhLight(){
-//            trafficLights(30,0,100,340);
-//
-//        }
-//
-//        public void eighthLight(){
-//            trafficLights(410,0,0,455);
-//
-//        }
-//
-//        public void ninthLight(){
-//            trafficLights(410,0,0,440);
-//
-//        }
-
-//        @Override
-//        public void run() {
-//            synchronized (myLock) {
-//                while (! isStopped  ) {
-//                    while (threadID != invokeThreadNumber) {
-//                        try {
-//                            myLock.wait();
-//                        } catch (InterruptedException e) {}
-//                    }
-//                    update();
-//
-//                    try {
-//                        Thread.sleep(PAUSE);
-//                    } catch (InterruptedException ex) { ex.printStackTrace();}
-//                    invokeThreadNumber++;
-//                    myLock.notifyAll();
-//                    if( invokeThreadNumber >= MAX_THREADS ) {
-//                        reset();
-//                    }
-//                }
-//            }
-//
-//        }
-//
-//    }
 
     class Paths {
 

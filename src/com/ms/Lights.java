@@ -17,8 +17,8 @@ public class Lights extends Thread {
     private static final int PAUSE = 6;
     private int light = 1;
     public static Lights light1, light2, light3, light4, light5, light6, light7, light8;
-    private boolean running;
-    
+    private boolean running = true;
+
 
     public Lights(int top, int right, int bottom, int left) {
 
@@ -136,6 +136,7 @@ public class Lights extends Thread {
                 circleGreen.setFill((onColor == 1) ? colors[onColor] : Color.GREY);
                 circleRed.setFill((onColor == 0) ? colors[onColor] : Color.GREY);
                 onColor = ((onColor + 1) >= colors.length) ? 0 : onColor + 1;
+                pause.play();
 
         });
         pause.play();
@@ -219,11 +220,10 @@ public class Lights extends Thread {
 
     @Override
     public void run() {
-        synchronized (this) {
-            while (true) {
+        //synchronized (this) {
+            while (running) {
                 try {
-                    System.out.println("lights " + light);
-                    Thread.sleep(PAUSE);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -235,7 +235,7 @@ public class Lights extends Thread {
                 selectConfig();
             }
         }
-    }
+    //}
 }
 
 

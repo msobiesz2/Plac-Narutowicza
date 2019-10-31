@@ -36,15 +36,4 @@ public class Car extends Node {
         return null;
     }
 
-
-    class AddCar{
-
-        public AddCar(){
-            Car car = new Car(5,5);
-            Grafika.cars.add(car);
-
-        }
-
-
-    }
 }
