@@ -8,17 +8,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-
 public class Lights extends Thread {
 
     private Circle circleRed, circleGreen;
     private Color[] colors = {Color.RED, Color.GREEN};
     private int onColor = 0;
-    private static final int PAUSE = 6;
-    private int light = 1;
+    private static final int PAUSE = 5;
+    private int light = 0;
     public static Lights light1, light2, light3, light4, light5, light6, light7, light8;
     private boolean running = true;
-
+    private boolean isGreen;
+    private final int START = 1;
 
     public Lights(int top, int right, int bottom, int left) {
 
@@ -42,91 +42,7 @@ public class Lights extends Thread {
         update();
     }
 
-    public Lights(){
-
-
-    }
-
-    public void trafficLights(int top, int right, int bottom, int left) {
-
-        GridPane gridPane = new GridPane();
-        gridPane.setPadding(new Insets(top, right, bottom, left));
-        gridPane.setHgap(5);
-        gridPane.setVgap(5);
-
-        circleRed = new Circle(5);
-        circleRed.setStroke(Color.BLACK);
-        circleRed.setFill(Color.GREY);
-
-        circleGreen = new Circle(5);
-        circleGreen.setStroke(Color.BLACK);
-        circleGreen.setFill(Color.GREY);
-
-        gridPane.add(circleGreen, 1, 1);
-        gridPane.add(circleRed, 1, 2);
-        Grafika.stackPane.getChildren().add(gridPane);
-    }
-
-//    public void firstLight(int setColor) {
-//
-//        trafficLights(30, 0, 100, 340);
-//        update(setColor);
-//
-//    }
-//
-//    public void secondLight(int setColor) {
-//
-//            trafficLights(500, 0, 0, 570);
-//            update(setColor);
-//
-//    }
-//
-//    public void thirdLight(int setColor){
-//            trafficLights(500,0,0,585);
-//            update(setColor);
-//        }
-//
-//    public void forthLight(int setColor){
-//            trafficLights(240,0,0,385);
-//            update(setColor);
-//        }
-//
-//    public void fifthLight(int setColor){
-//            trafficLights(230,0,0,415);
-//            update(setColor);
-//        }
-//
-//    public void sixthLight(int setColor){
-//            trafficLights(410,0,0,455);
-//            update(setColor);
-//        }
-//
-//    public void seventhLight(int setColor){
-//            trafficLights(410,0,0,440);
-//            update(setColor);
-//        }
-//
-//    public void eighthLight(int setColor){
-//            trafficLights(195,0,0,640);
-//            update(setColor);
-//    }
-//@Override
-//    public void run() {
-//        while (true) {
-//            try {
-//                Thread.sleep(PAUSE);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//
-//            light++;
-//            if (light == 5) {
-//                light = 1;
-//            }
-//            selectConfig();
-//        }
-//    }
-//
+    public Lights(){}
 
     private void update() {
 
@@ -145,11 +61,13 @@ public class Lights extends Thread {
     public void greenLight() {
 
         onColor = 1;
+        isGreen = true;
     }
 
     public void redLight() {
 
         onColor = 0;
+        isGreen = false;
     }
 
     public void lightsConfig(int lightOption) {
@@ -197,6 +115,7 @@ public class Lights extends Thread {
                 light7.greenLight();
                 light8.redLight();
                 break;
+
         }
     }
 
@@ -220,22 +139,31 @@ public class Lights extends Thread {
 
     @Override
     public void run() {
-        //synchronized (this) {
+        synchronized (this) {
             while (running) {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if (light == 0){
+                    try{
+                        Thread.sleep(START);
+                        System.out.println("starting");
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 light++;
                 if (light == 5) {
                     light = 1;
                 }
-                System.out.println("lights2 " + light);
+                System.out.println("lights " + light);
                 selectConfig();
             }
         }
-    //}
+    }
 }
 
 

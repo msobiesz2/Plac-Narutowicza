@@ -1,7 +1,5 @@
 package com.ms;
 
-
-
 public class App{
 
 	
